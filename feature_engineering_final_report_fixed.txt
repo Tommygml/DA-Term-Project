@@ -1,0 +1,28 @@
+=== 特徵工程管道整合報告 (修正版) ===
+
+=== 特徵數量變化 ===
+原始特徵數量：38
+Filter階段後：16 (42.1%)
+Embedded階段後：16 (42.1%)
+Wrapper階段後：5 (13.2%)
+最終特徵數量：7 (18.4%)
+總體縮減率：81.6%
+
+=== 資料集統計 ===
+訓練集筆數: 3539
+測試集筆數: 885
+目標變數: Target
+
+=== 目標變數分佈 ===
+Graduate: 1767 (49.9%)
+Dropout: 1137 (32.1%)
+Enrolled: 635 (17.9%)
+
+=== 最終保留的特徵 (7) ===
+1. Curricular units 2nd sem (approved) (原始特徵)
+2. Curricular units 1st sem (enrolled) (原始特徵)
+3. Course (原始特徵)
+4. Curricular units 2nd sem (evaluations) (原始特徵)
+5. Curricular units 2nd sem (enrolled) (原始特徵)
+6. First_Sem_Success_Rate (衍生特徵)
+7. Second_Sem_Success_Rate (衍生特徵)

@@ -1,0 +1,2 @@
+model_name,accuracy,f1_macro,precision_Dropout,recall_Dropout,precision_Enrolled,recall_Enrolled,precision_Graduate,recall_Graduate
+LogisticRegression,0.7152542372881356,0.6763127290950841,0.788135593220339,0.6549295774647887,0.4090909090909091,0.6226415094339622,0.855036855036855,0.7873303167420814

@@ -1,0 +1,45 @@
+=== 邏輯回歸模型報告 ===
+
+模型資訊:
+- 模型名稱: LogisticRegression
+- 訓練集大小: 3539
+- 測試集大小: 885
+- 特徵數量: 7
+- 目標類別: Dropout, Enrolled, Graduate
+
+模型參數:
+- C: 1.0
+- class_weight: balanced
+- dual: False
+- fit_intercept: True
+- intercept_scaling: 1
+- l1_ratio: None
+- max_iter: 1000
+- multi_class: multinomial
+- n_jobs: -1
+- penalty: l2
+- random_state: 42
+- solver: lbfgs
+- tol: 0.0001
+- verbose: 0
+- warm_start: False
+
+性能指標:
+- 準確率: 0.7153
+- F1分數(macro): 0.6763
+
+混淆矩陣:
+預測 \ 實際 | Dropout | Enrolled | Graduate
+--------------------------------------------------
+Dropout     |    186 |     67 |     31
+Enrolled     |     32 |     99 |     28
+Graduate     |     18 |     76 |    348
+
+特徵重要性 (前15):
+1. Curricular units 2nd sem (approved): 1.2165
+2. Second_Sem_Success_Rate: 0.5194
+3. First_Sem_Success_Rate: 0.5018
+4. Curricular units 2nd sem (evaluations): 0.4151
+5. Curricular units 1st sem (enrolled): 0.2745
+6. Curricular units 2nd sem (enrolled): 0.2496
+7. Course: 0.1834

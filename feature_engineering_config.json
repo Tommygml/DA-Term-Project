@@ -34,7 +34,24 @@
         "Curricular units 1st sem (enrolled)",
         "Course",
         "Curricular units 2nd sem (evaluations)",
+        "Curricular units 2nd sem (enrolled)",
+        "First_Sem_Success_Rate"
+    ],
+    "wrapper_features": [
+        "Curricular units 2nd sem (approved)",
+        "Curricular units 1st sem (enrolled)",
+        "Course",
+        "Curricular units 2nd sem (evaluations)",
         "Curricular units 2nd sem (enrolled)"
     ],
-    "total_reduction": "86.8%"
+    "derived_features": [
+        "First_Sem_Success_Rate"
+    ],
+    "target_column": "Second_Sem_Success_Rate",
+    "total_reduction": "84.2%",
+    "dataset_info": {
+        "train_rows": 3539,
+        "test_rows": 885,
+        "final_columns": 7
+    }
 }
