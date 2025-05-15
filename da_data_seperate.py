@@ -11,9 +11,8 @@ from sklearn.model_selection import train_test_split
 import os
 from pathlib import Path
 
-# 設定工作目錄
+# 設定工作目錄但不改變當前目錄
 WORK_DIR = Path(r"c:\Tommy\Python\DA Homework\Term Project")
-os.chdir(WORK_DIR)
 
 # 設定隨機種子以確保可重現性
 RANDOM_SEED = 42
@@ -23,7 +22,8 @@ def load_data(file_path):
     """載入原始數據集"""
     try:
         # 讀取CSV文件，注意分隔符是分號
-        df = pd.read_csv(file_path, sep=';')
+        full_path = WORK_DIR / file_path
+        df = pd.read_csv(full_path, sep=';')
         print(f"成功載入數據集，共 {len(df)} 筆資料")
         return df
     except Exception as e:
@@ -75,11 +75,11 @@ def split_data(df, target_col, test_size=0.2):
 def save_datasets(train_df, test_df):
     """儲存訓練集和測試集"""
     # 儲存為CSV格式，使用分號作為分隔符以保持一致性
-    train_df.to_csv('data_train.csv', sep=';', index=False)
-    test_df.to_csv('data_test.csv', sep=';', index=False)
+    train_df.to_csv(WORK_DIR / 'data_train.csv', sep=';', index=False)
+    test_df.to_csv(WORK_DIR / 'data_test.csv', sep=';', index=False)
     print("\n成功儲存檔案：")
-    print("- data_train.csv")
-    print("- data_test.csv")
+    print(f"- {WORK_DIR / 'data_train.csv'}")
+    print(f"- {WORK_DIR / 'data_test.csv'}")
 
 def generate_split_report(original_df, train_df, test_df, target_col):
     """生成拆分統計報告"""
@@ -113,10 +113,10 @@ def generate_split_report(original_df, train_df, test_df, target_col):
         report.append(f"  {value}: {count} ({percentage:.2f}%)")
     
     # 儲存報告
-    with open('data_split_report.txt', 'w', encoding='utf-8') as f:
+    with open(WORK_DIR / 'data_split_report.txt', 'w', encoding='utf-8') as f:
         f.write('\n'.join(report))
     
-    print("\n報告已儲存至 data_split_report.txt")
+    print("\n報告已儲存至 " + str(WORK_DIR / 'data_split_report.txt'))
     print('\n'.join(report))
 
 def main():

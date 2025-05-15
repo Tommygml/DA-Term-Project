@@ -1,0 +1,17 @@
+feature,ranking,selected,selected_at_n
+Curricular units 2nd sem (approved),1,True,5
+Curricular units 1st sem (enrolled),1,True,5
+Course,1,True,5
+Curricular units 2nd sem (evaluations),1,True,5
+Curricular units 2nd sem (enrolled),1,True,5
+Unemployment rate,2,False,0
+Age at enrollment,3,False,0
+Admission grade,4,False,0
+Inflation rate,5,False,0
+Previous qualification (grade),6,False,0
+Application mode,7,False,0
+GDP,8,False,0
+Scholarship holder,9,False,0
+Gender,10,False,0
+Application order,11,False,0
+Displaced,12,False,0

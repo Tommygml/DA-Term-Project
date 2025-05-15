@@ -1,0 +1,28 @@
+=== Embedded階段特徵選擇報告 ===
+
+初始特徵數量（Filter階段）：16
+選擇的特徵數量：16
+特徵選擇比例：100.0%
+
+=== 各方法選擇摘要 ===
+Lasso非零係數特徵：16 個
+Elastic Net非零係數特徵：16 個
+隨機森林前20%重要特徵：3 個
+
+=== 選擇的特徵（按綜合分數排序）===
+1. Curricular units 2nd sem (approved): 1.0000
+2. Curricular units 2nd sem (enrolled): 0.4772
+3. Curricular units 2nd sem (evaluations): 0.3910
+4. Curricular units 1st sem (enrolled): 0.1478
+5. Course: 0.1139
+6. Unemployment rate: 0.0790
+7. Age at enrollment: 0.0690
+8. Inflation rate: 0.0540
+9. GDP: 0.0407
+10. Displaced: 0.0239
+11. Gender: 0.0231
+12. Application mode: 0.0198
+13. Previous qualification (grade): 0.0193
+14. Scholarship holder: 0.0162
+15. Application order: 0.0146
+16. Admission grade: 0.0123

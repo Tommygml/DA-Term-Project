@@ -158,6 +158,34 @@ class DataPreprocessor:
         
         return df_clean, outlier_info
     
+    def normalize_float_values(self, df, column, threshold=0.0001):
+        """
+        標準化浮點數值，將接近某些值的數據調整為標準值
+        
+        參數:
+        df: DataFrame - 包含要處理的數據
+        column: str - 要處理的列名
+        threshold: float - 判斷兩個浮點數是否接近的閾值
+        
+        返回:
+        DataFrame - 處理後的數據框
+        """
+        # 複製數據框以避免修改原始數據
+        df_copy = df.copy()
+        
+        # 針對接近1.0的值進行標準化
+        mask_near_one = abs(df_copy[column] - 1.0) < threshold
+        df_copy.loc[mask_near_one, column] = 1.0
+        
+        # 可以添加更多的標準化規則，例如接近0.0的值
+        mask_near_zero = abs(df_copy[column]) < threshold
+        df_copy.loc[mask_near_zero, column] = 0.0
+        
+        # 四捨五入到6位小數，確保浮點數精度一致
+        df_copy[column] = df_copy[column].round(6)
+        
+        return df_copy
+    
     def feature_engineering_basic(self, df):
         """基礎特徵工程"""
         df_engineered = df.copy()
@@ -179,6 +207,18 @@ class DataPreprocessor:
                 df_engineered['Curricular units 2nd sem (approved)'] / 
                 (df_engineered['Curricular units 2nd sem (enrolled)'] + 1e-5)
             )
+        
+        # 標準化浮點數值，確保訓練集和測試集一致
+        if 'First_Sem_Success_Rate' in df_engineered.columns:
+            df_engineered = self.normalize_float_values(df_engineered, 'First_Sem_Success_Rate')
+        
+        if 'Second_Sem_Success_Rate' in df_engineered.columns:
+            df_engineered = self.normalize_float_values(df_engineered, 'Second_Sem_Success_Rate')
+            
+            # 記錄處理後的唯一值，用於調試
+            unique_values = sorted(df_engineered['Second_Sem_Success_Rate'].unique())
+            print(f"Second_Sem_Success_Rate 唯一值（處理後）: {len(unique_values)}個")
+            print(unique_values)
         
         return df_engineered
     

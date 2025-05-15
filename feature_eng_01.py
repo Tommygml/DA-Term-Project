@@ -87,12 +87,21 @@ class FilterFeatureSelector:
         chi2_scores = {}
         
         for feature in self.categorical_features:
-            # 確保特徵為非負整數
+            # 準備特徵資料
             X_feature = self.X_train[[feature]].copy()
-            if X_feature[feature].min() < 0:
-                X_feature[feature] = X_feature[feature] - X_feature[feature].min()
             
+            # 檢查特徵類型和值
             try:
+                # 如果是字串類型，跳過
+                if X_feature[feature].dtype == 'object':
+                    print(f"跳過字串類型特徵: {feature}")
+                    continue
+                
+                # 檢查是否有負值
+                if X_feature[feature].min() < 0:
+                    X_feature[feature] = X_feature[feature] - X_feature[feature].min()
+                
+                # 執行卡方檢定
                 chi2_stat, p_value = chi2(X_feature, self.y_train_encoded)
                 chi2_scores[feature] = {
                     'chi2_statistic': chi2_stat[0],
@@ -177,24 +186,37 @@ class FilterFeatureSelector:
         print("\n=== 計算互信息 ===")
         mi_scores = {}
         
+        # 準備數據，處理字串類型的特徵
+        X_processed = self.X_train.copy()
+        categorical_cols = X_processed.select_dtypes(include=['object']).columns
+        
+        # 對字串類型特徵進行編碼
+        for col in categorical_cols:
+            le = LabelEncoder()
+            X_processed[col] = le.fit_transform(X_processed[col])
+        
         # 對所有特徵計算互信息
-        all_features = self.X_train.columns.tolist()
-        mi_values = mutual_info_classif(self.X_train, self.y_train_encoded,
-                                       discrete_features='auto', 
-                                       random_state=42)
-        
-        for feature, mi_score in zip(all_features, mi_values):
-            mi_scores[feature] = mi_score
-        
-        # 儲存結果
-        self.feature_scores['mutual_info'] = mi_scores
-        
-        # 顯示前15個最高互信息的特徵
-        sorted_features = sorted(mi_scores.items(), 
-                               key=lambda x: x[1], reverse=True)[:15]
-        print("\n互信息最高的前15個特徵：")
-        for feature, mi_score in sorted_features:
-            print(f"{feature}: {mi_score:.4f}")
+        all_features = X_processed.columns.tolist()
+        try:
+            mi_values = mutual_info_classif(X_processed, self.y_train_encoded,
+                                           discrete_features='auto', 
+                                           random_state=42)
+            
+            for feature, mi_score in zip(all_features, mi_values):
+                mi_scores[feature] = mi_score
+            
+            # 儲存結果
+            self.feature_scores['mutual_info'] = mi_scores
+            
+            # 顯示前15個最高互信息的特徵
+            sorted_features = sorted(mi_scores.items(), 
+                                   key=lambda x: x[1], reverse=True)[:15]
+            print("\n互信息最高的前15個特徵：")
+            for feature, mi_score in sorted_features:
+                print(f"{feature}: {mi_score:.4f}")
+        except Exception as e:
+            print(f"計算互信息時發生錯誤：{e}")
+            print("將僅使用卡方檢定和ANOVA結果進行特徵選擇")
     
     def select_features(self, p_value_threshold=0.05, mi_percentile=75):
         """根據統計檢定結果選擇特徵"""
@@ -281,7 +303,7 @@ class FilterFeatureSelector:
             ax1.hist(p_values, bins=30, edgecolor='black', alpha=0.7)
             ax1.axvline(x=0.05, color='red', linestyle='--', label='p=0.05')
             ax1.set_xlabel('p-value')
-            ax1.set_ylabel('頻率')
+            ax1.set_ylabel('特徵數量')
             ax1.set_title('卡方檢定 p值分布')
             ax1.legend()
         
@@ -291,7 +313,7 @@ class FilterFeatureSelector:
             ax2.hist(p_values, bins=30, edgecolor='black', alpha=0.7)
             ax2.axvline(x=0.05, color='red', linestyle='--', label='p=0.05')
             ax2.set_xlabel('p-value')
-            ax2.set_ylabel('頻率')
+            ax2.set_ylabel('特徵數量')
             ax2.set_title('ANOVA檢定 p值分布')
             ax2.legend()
         
@@ -365,7 +387,7 @@ class FilterFeatureSelector:
     def run_filter_selection(self):
         """執行完整的Filter階段特徵選擇"""
         print("=== 開始Filter階段特徵選擇 ===")
-        
+        print("開始載入數據")
         # 載入數據
         if not self.load_data():
             return

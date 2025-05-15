@@ -1,0 +1,18 @@
+=== Wrapper階段特徵選擇報告 ===
+
+初始特徵數量（Embedded階段）：16
+RFE最優特徵數量：5
+最終選擇的特徵數量：5
+特徵選擇比例：31.2%
+
+=== 性能指標 ===
+最佳CV F1分數：0.9708
+單特徵F1分數：0.9861
+性能提升：-1.53%
+
+=== 選擇的特徵（按排名）===
+1. Curricular units 2nd sem (approved) (排名: 1)
+2. Curricular units 1st sem (enrolled) (排名: 1)
+3. Course (排名: 1)
+4. Curricular units 2nd sem (evaluations) (排名: 1)
+5. Curricular units 2nd sem (enrolled) (排名: 1)

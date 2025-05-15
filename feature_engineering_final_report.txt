@@ -1,0 +1,21 @@
+=== 特徵工程管道整合報告 ===
+
+=== 特徵數量變化 ===
+原始特徵數量：38
+Filter階段後：16 (42.1%)
+Embedded階段後：16 (42.1%)
+Wrapper階段後：5 (13.2%)
+最終特徵數量：5
+總體縮減率：86.8%
+
+=== 各階段移除的特徵 ===
+Filter階段移除：22 個特徵
+Embedded階段移除：0 個特徵
+Wrapper階段移除：11 個特徵
+
+=== 最終保留的特徵 ===
+1. Curricular units 2nd sem (approved)
+2. Curricular units 1st sem (enrolled)
+3. Course
+4. Curricular units 2nd sem (evaluations)
+5. Curricular units 2nd sem (enrolled)

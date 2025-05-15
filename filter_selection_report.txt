@@ -1,0 +1,28 @@
+=== Filter階段特徵選擇報告 ===
+
+原始特徵數量：38
+選擇的特徵數量：16
+特徵選擇比例：42.1%
+
+=== 統計檢定結果摘要 ===
+卡方檢定顯著特徵：9 個
+ANOVA檢定顯著特徵：12 個
+高度相關特徵對：10 對
+
+=== 選擇的特徵列表 ===
+1. Gender
+2. Previous qualification (grade)
+3. Admission grade
+4. Curricular units 2nd sem (enrolled)
+5. Curricular units 2nd sem (evaluations)
+6. Displaced
+7. Curricular units 1st sem (enrolled)
+8. Inflation rate
+9. Curricular units 2nd sem (approved)
+10. Unemployment rate
+11. Course
+12. Age at enrollment
+13. GDP
+14. Application mode
+15. Scholarship holder
+16. Application order

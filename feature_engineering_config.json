@@ -1,0 +1,40 @@
+{
+    "pipeline_stages": {
+        "stage_1": {
+            "name": "Filter",
+            "methods": [
+                "chi2",
+                "anova",
+                "mutual_info"
+            ],
+            "input_features": 38,
+            "output_features": 16
+        },
+        "stage_2": {
+            "name": "Embedded",
+            "methods": [
+                "lasso",
+                "random_forest",
+                "elastic_net"
+            ],
+            "input_features": 16,
+            "output_features": 16
+        },
+        "stage_3": {
+            "name": "Wrapper",
+            "methods": [
+                "rfe_cv"
+            ],
+            "input_features": 16,
+            "output_features": 5
+        }
+    },
+    "final_features": [
+        "Curricular units 2nd sem (approved)",
+        "Curricular units 1st sem (enrolled)",
+        "Course",
+        "Curricular units 2nd sem (evaluations)",
+        "Curricular units 2nd sem (enrolled)"
+    ],
+    "total_reduction": "86.8%"
+}
