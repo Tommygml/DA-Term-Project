@@ -1,0 +1,43 @@
+=== 隨機森林模型報告 ===
+
+模型資訊:
+- 模型名稱: RandomForest
+- 問題類型: 多分類
+- 訓練集大小: 3539
+- 測試集大小: 885
+- 特徵數量: 7
+- 目標類別: Dropout, Enrolled, Graduate
+
+模型參數:
+- 樹的數量: 100
+- 最大深度: None
+- 最小分裂樣本數: 2
+- 最小葉節點樣本數: 1
+- 特徵抽樣方式: sqrt
+
+樹的統計資訊:
+- 平均深度: 20.87
+- 最大深度: 27
+- 平均節點數: 1387.58
+- 最大節點數: 1475
+
+性能指標:
+- 準確率: 0.6983
+- F1分數(macro): 0.6326
+- OOB分數: 0.7146
+
+混淆矩陣:
+預測 \ 實際 | Dropout | Enrolled | Graduate
+--------------------------------------------------
+Dropout     |    204 |     39 |     41
+Enrolled     |     59 |     61 |     39
+Graduate     |     37 |     52 |    353
+
+特徵重要性 (前10，基於MDI):
+1. Curricular units 2nd sem (evaluations): 0.2150
+2. Second_Sem_Success_Rate: 0.2091
+3. Course: 0.1823
+4. First_Sem_Success_Rate: 0.1694
+5. Curricular units 2nd sem (approved): 0.1475
+6. Curricular units 2nd sem (enrolled): 0.0390
+7. Curricular units 1st sem (enrolled): 0.0375

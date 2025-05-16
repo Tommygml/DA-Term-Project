@@ -1,0 +1,8 @@
+,LogisticRegression,XGBoost,RandomForest,SVM,MLP,平均排名
+Curricular units 2nd sem (approved),1.0,5.0,5.0,1.0,1.0,2.6
+Curricular units 2nd sem (evaluations),4.0,2.0,1.0,4.0,3.0,2.8
+First_Sem_Success_Rate,3.0,3.0,4.0,3.0,2.0,3.0
+Second_Sem_Success_Rate,2.0,4.0,2.0,2.0,5.0,3.0
+Course,7.0,1.0,3.0,6.0,4.0,4.2
+Curricular units 2nd sem (enrolled),6.0,7.0,8.0,5.0,6.0,6.4
+Curricular units 1st sem (enrolled),5.0,6.0,9.0,7.0,7.0,6.8

@@ -1,0 +1,15 @@
+feature,importance,method
+Curricular units 2nd sem (evaluations),0.21497224982313023,MDI
+Second_Sem_Success_Rate,0.20912337691816682,MDI
+Course,0.1823284698227874,MDI
+First_Sem_Success_Rate,0.16944886481662066,MDI
+Curricular units 2nd sem (approved),0.14754524765329347,MDI
+Curricular units 2nd sem (enrolled),0.03904543290435588,MDI
+Curricular units 1st sem (enrolled),0.03753635806164538,MDI
+Second_Sem_Success_Rate,0.11480225988700565,Permutation
+First_Sem_Success_Rate,0.06485875706214686,Permutation
+Curricular units 2nd sem (evaluations),0.021242937853107314,Permutation
+Course,0.012203389830508438,Permutation
+Curricular units 2nd sem (enrolled),-0.0038418079096045553,Permutation
+Curricular units 2nd sem (approved),-0.008361581920903994,Permutation
+Curricular units 1st sem (enrolled),-0.011073446327683655,Permutation

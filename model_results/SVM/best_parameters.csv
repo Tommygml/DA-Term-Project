@@ -1,0 +1,5 @@
+parameter,best_value
+C,10
+decision_function_shape,ovo
+gamma,scale
+kernel,linear

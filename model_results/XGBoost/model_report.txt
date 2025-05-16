@@ -1,0 +1,33 @@
+=== XGBoost模型報告 ===
+
+模型資訊:
+- 模型名稱: XGBoost
+- 問題類型: 多分類
+- 訓練集大小: 3539
+- 測試集大小: 885
+- 特徵數量: 7
+- 目標類別: Dropout, Enrolled, Graduate
+
+模型參數:
+- best_iteration: 54
+- best_score: 0.6004895320772535
+
+性能指標:
+- 準確率: 0.7424
+- F1分數(macro): 0.6615
+
+混淆矩陣:
+預測 \ 實際 | Dropout | Enrolled | Graduate
+--------------------------------------------------
+Dropout     |    190 |     36 |     58
+Enrolled     |     41 |     57 |     61
+Graduate     |     11 |     21 |    410
+
+特徵重要性 (前10，按增益排序):
+1. Second_Sem_Success_Rate: 增益=7.4983, 權重=979.0000
+2. First_Sem_Success_Rate: 增益=2.7179, 權重=1149.0000
+3. Curricular units 2nd sem (approved): 增益=2.6853, 權重=900.0000
+4. Curricular units 2nd sem (enrolled): 增益=1.7194, 權重=478.0000
+5. Curricular units 1st sem (enrolled): 增益=1.1378, 權重=545.0000
+6. Course: 增益=1.0502, 權重=1784.0000
+7. Curricular units 2nd sem (evaluations): 增益=0.8927, 權重=1663.0000

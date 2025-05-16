@@ -1,0 +1,48 @@
+=== 多層感知器 (MLP) 模型報告 ===
+
+模型資訊:
+- 模型名稱: MLP
+- 問題類型: 多分類
+- 訓練集大小: 3539
+- 測試集大小: 885
+- 特徵數量: 7
+- 目標類別: Dropout, Enrolled, Graduate
+
+模型參數:
+- 隱藏層配置: (100,)
+- 激活函數: relu
+- 優化器: adam
+- L2正則化參數 (alpha): 0.0001
+- 學習率: 0.01
+- 批次大小: 64
+- 迭代次數: 16
+
+網絡參數統計:
+- 總參數數量: 1103
+- 權重數量: 1000
+- 偏置數量: 103
+
+網絡架構:
+- 輸入層: 7 個神經元
+- 隱藏層 1: 100 個神經元
+- 輸出層: 3 個神經元
+
+性能指標:
+- 準確率: 0.7356
+- F1分數(macro): 0.6319
+
+混淆矩陣:
+預測 \ 實際 | Dropout | Enrolled | Graduate
+--------------------------------------------------
+Dropout     |    214 |     27 |     43
+Enrolled     |     66 |     39 |     54
+Graduate     |     24 |     20 |    398
+
+特徵重要性 (前10，基於第一層權重):
+1. Curricular units 2nd sem (approved): 0.1599
+2. First_Sem_Success_Rate: 0.1540
+3. Curricular units 2nd sem (evaluations): 0.1478
+4. Course: 0.1442
+5. Second_Sem_Success_Rate: 0.1354
+6. Curricular units 2nd sem (enrolled): 0.1328
+7. Curricular units 1st sem (enrolled): 0.1112

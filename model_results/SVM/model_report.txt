@@ -1,0 +1,41 @@
+=== SVM模型報告 ===
+
+模型資訊:
+- 模型名稱: SVM
+- 問題類型: 多分類
+- 訓練集大小: 3539
+- 測試集大小: 885
+- 特徵數量: 7
+- 目標類別: Dropout, Enrolled, Graduate
+
+模型參數:
+- 核函數: linear
+- C值: 10
+- Gamma: scale
+- 決策函數形狀: ovo
+
+支持向量資訊:
+- 總支持向量數量: 2209 (62.42% 的訓練樣本)
+- 類別 Dropout 的支持向量數量: 679 (30.74%)
+- 類別 Enrolled 的支持向量數量: 586 (26.53%)
+- 類別 Graduate 的支持向量數量: 944 (42.73%)
+
+性能指標:
+- 準確率: 0.7062
+- F1分數(macro): 0.6689
+
+混淆矩陣:
+預測 \ 實際 | Dropout | Enrolled | Graduate
+--------------------------------------------------
+Dropout     |    171 |     82 |     31
+Enrolled     |     26 |    105 |     28
+Graduate     |     12 |     81 |    349
+
+特徵重要性 (前10，基於置換):
+1. Curricular units 2nd sem (approved): 0.2662
+2. Second_Sem_Success_Rate: 0.1297
+3. First_Sem_Success_Rate: 0.0954
+4. Curricular units 2nd sem (evaluations): 0.0408
+5. Curricular units 2nd sem (enrolled): 0.0269
+6. Course: -0.0024
+7. Curricular units 1st sem (enrolled): -0.0043
